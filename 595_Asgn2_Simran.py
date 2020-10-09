@@ -1,22 +1,17 @@
 import requests
 import pandas as pd
 from bs4 import BeautifulSoup
-
 # create an empty dictionary to store output later
 data = {}
-
 def get_data():
     # request access to the given url
     result = requests.get("http://3.95.249.159:8000/random_company")
-
     # ensure to get 200 which means I have access to the page
-    # print(result.status_code)
+    # print(result.statuode)
     # print(result.headers)
-
     # extract content of the page
     source = result.content
     # print(source)
-
     # pass source variable in beautifulsoup class
     soup = BeautifulSoup(source, 'html.parser')
 
@@ -50,3 +45,5 @@ while i < 50:
 df = pd.DataFrame.from_dict(data, orient = 'index', columns = ["Name", "Purpose"])
 # export the dataframe to csv
 df.to_csv('Simran_results_Assignment2.csv')
+############################ Reivew of Simran's code - I would have used a for loop instead of a while loop but the code works correctly (5/5)#################
+
